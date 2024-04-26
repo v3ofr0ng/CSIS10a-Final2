@@ -5,12 +5,13 @@ import java.util.Scanner;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Fight
+public class Fight 
 {
     public static int php = 50; //player and enemy health points
     public static int ehp = 50;
     public static void main(String []args){
         start();
+        OppFight wuh = new OppFight();
         while(php > 0){
             if (ehp <= 0){
                 System.out.println("Guy stumbles back, the blood drips from his mouth, he gasps for air. 'I shouldve known I couldnt win'");
@@ -19,7 +20,7 @@ public class Fight
             }
             else{
                 fight();
-                //oppfight();
+                wuh.fight();
             }
         }
         System.out.println("Your legs give out. Your head throbs, your body burns, your eyes begin to black out as Guy walks to you");
@@ -106,8 +107,8 @@ public class Fight
             int oh = uh.nextInt();
             if(oh == 1){
                 System.out.println("FFFUUUUUAAGGGGGUUUHHHHHH");
-                System.out.println("You pull Guy upwards, your feet leave the ");
-                System.out.print("ground as you torpedo him into the floor");
+                System.out.print("You pull Guy upwards, your feet leave the ");
+                System.out.println("ground as you torpedo him into the floor");
                 System.out.println("20 DAMAGE");
                 ehp = ehp - 20;
             }
