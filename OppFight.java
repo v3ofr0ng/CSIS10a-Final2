@@ -12,8 +12,8 @@ public class OppFight extends Fight
     }
 
     public static void fight(){
-        double bleh = Math.random();  // Read user input
-        if(bleh <= 0.2){
+        double bleh = Math.random();  // gets random val;ue
+        if(bleh <= 0.2){//depending on value, different action
             punch2();
         }
         else if(bleh > 0.2 && bleh <= 0.4){
