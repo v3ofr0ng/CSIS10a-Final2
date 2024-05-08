@@ -14,20 +14,23 @@ public class Fight
 {
     public static int php = 50; //player and enemy health points
     public static int ehp = 50;
-    
+
     public static void main(String []args){
         //***************Music*********
-        String filepath = "GameMusic.wav";//music
+        String filepath = "newSong.wav";//music
         playMusic(filepath);//play music ,method
-        JOptionPane.showMessageDialog(null, ":3");//still music
-        
+        JOptionPane.showMessageDialog(null, ":3");//still music, just shows a message!
+
         //********************Beginning the fight and the instance for the enemy's attacks*************
         start();
         OppFight wuh = new OppFight();//instance of the opponent fighting
-        
+
         //**********Turn*********
         int turn = 1; //turn counter
-        
+
+        //***********Random event******
+        RandomEvents guh = new RandomEvents();
+
         //************Fighting loop***************
         while(php > 0){
             //this if statement is the base case when you beat the enemy
@@ -38,32 +41,38 @@ public class Fight
             }
             else{
                 System.out.println("***************TURN " + turn + "***************");//Seperates the turns, makes it a teeny bit easier to see
-                fight(); //player fighting
+                try {
+                    fight(); //player fighting
+                }
+                catch (Exception e) {
+                    System.out.println("Since you didnt want to type a number your turn is skipped >:(");
+                }
                 wuh.fight();//opponent fighting using the instance created above
+                guh.Random();
                 turn++;//adding every turn
             }
         }
         System.out.println("Your legs give out. Your head throbs, your body burns, your eyes begin to black out");//The end of you
         System.out.println("'Come back in 10 years' he proclaims as he walks away");
     }
-    
+
     //*******Music method**********
     public static void playMusic(String location){
         try
         {
-           File musicPath = new File(location);//Creates a variable that holds the file location inputted
-           //If it exists then...
-           if(musicPath.exists())
-           {
-               AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);//Get tp the file
-               Clip clip = AudioSystem.getClip();//Get the clip of the file
-               clip.open(audioInput);//Open the file
-               clip.start();//Play!
-           }
-           else
-           {
-               System.out.println("Can't find file");//just incase the file cant be found
-           }
+            File musicPath = new File(location);//Creates a variable that holds the file location inputted
+            //If it exists then...
+            if(musicPath.exists())
+            {
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);//Get tp the file
+                Clip clip = AudioSystem.getClip();//Get the clip of the file
+                clip.open(audioInput);//Open the file
+                clip.start();//Play!
+            }
+            else
+            {
+                System.out.println("Can't find file");//just incase the file cant be found
+            }
         }
         catch(Exception e)
         {
@@ -81,35 +90,42 @@ public class Fight
         System.out.println("4) jumping knee");
         System.out.println("5) sweep");
 
-        int bleh = choice.nextInt();  // Read user input
-        //Each one is a different move, and calls a different class;
-        if(bleh == 1){
-            Puncher youch = new Puncher();
-            youch.punch();
-        }
-        else if(bleh == 2){
-            Kicker ugh = new Kicker();
-            ugh.kick(); 
-        }
-        else if(bleh == 3){
-            Suplexer blurgh = new Suplexer();
-            blurgh.suplex();
-        }
-        else if(bleh == 4){
-            Jumpkneer aiaiai = new Jumpkneer();
-            aiaiai.jumpKnee();
-        }
-        else if(bleh == 5){
-            Duster huh = new Duster();
-            huh.sweep();
-        }
-        else{
-            System.out.println("Buddy just pick one of the moves");
-            fight();
+        while (true) {
+            int bleh = choice.nextInt();  // Read user input
+            //Each one is a different move, and calls a different class;
+            if(bleh == 1){
+                Puncher youch = new Puncher();
+                youch.punch();
+                break;
+            }
+            else if(bleh == 2){
+                Kicker ugh = new Kicker();
+                ugh.kick(); 
+                break;
+            }
+            else if(bleh == 3){
+                Suplexer blurgh = new Suplexer();
+                blurgh.suplex();
+                break;
+            }
+            else if(bleh == 4){
+                Jumpkneer aiaiai = new Jumpkneer();
+                aiaiai.jumpKnee();
+                break;
+            }
+            else if(bleh == 5){
+                Duster huh = new Duster();
+                huh.sweep();
+                break;
+            }
+            else{
+                System.out.println("Type one of the numbers pal");
+                fight();
+            }
+
         }
     }
-    
-    
+
     //This method just chooses a random scenario to start the game
     public static void start(){
         double chance = Math.random() * 3;
