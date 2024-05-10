@@ -10,7 +10,7 @@ public class Duster extends Fight
     public static void sweep(){
         double chance = Math.random();//creates a random number
 
-        if(chance >= 0.5){
+        if(chance >= 0.7){
             System.out.println("You drop to your feet and swing your leg under Guy, dropping him to his back");
             ehp = ehp - 3;
             // ablility to build upon previous moves

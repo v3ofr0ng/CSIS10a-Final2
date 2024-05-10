@@ -13,6 +13,7 @@ public class Kicker extends Fight
         if(chance >= 0.8){
             System.out.println("You kick Guy in th stomach, he curls up");
             System.out.println("friiiiccccckkk");
+            System.out.println("10 DAMAGE");
             ehp = ehp - 10;//depending on the number, the hit lands
         }
         else{

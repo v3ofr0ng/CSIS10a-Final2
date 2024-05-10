@@ -19,7 +19,7 @@ public class Fight
         //***************Music*********
         String filepath = "newSong.wav";//music
         playMusic(filepath);//play music ,method
-        JOptionPane.showMessageDialog(null, ":3");//still music, just shows a message!
+        JOptionPane.showMessageDialog(null, ":)");//still music, just shows a message!
 
         //********************Beginning the fight and the instance for the enemy's attacks*************
         start();
@@ -36,7 +36,8 @@ public class Fight
             //this if statement is the base case when you beat the enemy
             if (ehp <= 0){  
                 System.out.println("Guy stumbles back, the blood drips from his mouth, he gasps for air. 'I shouldve known I couldnt win'");
-                System.out.println("He drops to the floor, you won, but what price did you pay");
+                System.out.println("He drops to the floor");
+                System.out.println("YOU WIN");
                 return;
             }
             else{
@@ -54,6 +55,7 @@ public class Fight
         }
         System.out.println("Your legs give out. Your head throbs, your body burns, your eyes begin to black out");//The end of you
         System.out.println("'Come back in 10 years' he proclaims as he walks away");
+        System.out.println("YOU LOSE");
     }
 
     //*******Music method**********
@@ -64,7 +66,7 @@ public class Fight
             //If it exists then...
             if(musicPath.exists())
             {
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);//Get tp the file
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);//Get to the file
                 Clip clip = AudioSystem.getClip();//Get the clip of the file
                 clip.open(audioInput);//Open the file
                 clip.start();//Play!
@@ -94,7 +96,7 @@ public class Fight
             int bleh = choice.nextInt();  // Read user input
             //Each one is a different move, and calls a different class;
             if(bleh == 1){
-                Puncher youch = new Puncher();
+                Puncher youch = new Puncher(); //new instance of the move
                 youch.punch();
                 break;
             }
@@ -122,7 +124,7 @@ public class Fight
                 System.out.println("Type one of the numbers pal");
                 fight();
             }
-
+            
         }
     }
 

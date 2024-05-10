@@ -12,6 +12,7 @@ public class Puncher extends Fight
 
         if(chance >= 0.5){
             System.out.println("You swing at Guy, sending him backwards");
+            System.out.println("5 Damage");
             ehp = ehp - 5;//depending on the number, the hit lands
         }
         else{

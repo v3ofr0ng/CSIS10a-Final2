@@ -33,12 +33,13 @@ public class Suplexer extends Fight
                 System.out.println("YYOOOUCH 'WHATS WRONG WITH YOU'says Guy ");
                 System.out.println("You feel your strength and stamina replenish ");
                 System.out.println("as the iron flavored blood flows");
+                System.out.println(" + 5 HP");
 
                 ehp = ehp - 5;
                 php = php + 5;
             }
             else{
-                System.out.println("since you didnt wanna type one of the the numbers your turn is skipped >:(");
+                System.out.println("You let go");
                 return;
             }
 
